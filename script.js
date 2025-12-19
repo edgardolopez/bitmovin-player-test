@@ -32,8 +32,18 @@ const testVideoTwoSource = {
 };
 
 const testVideoThreeSource = {
-    hls: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/video/manifest.m3u8',
-    title: 'Carl'
+    hls: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoThree/manifest.m3u8',
+    title: 'Carl',
+    subtitleTracks: [
+        {
+            url: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoThree/vtt/vtt.srt',
+            label: 'Spanish',
+            id: 'es',
+            kind: 'subtitles',
+            lang: 'es',
+            enabled: true
+        }
+    ]
 };
 
 
