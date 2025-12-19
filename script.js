@@ -76,17 +76,17 @@ const testAudioSource = {
 // === Test source video with subtitles ===
 const testVideoWithSubtitlesSource = {
     hls: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/manifest.m3u8',
-    title: 'Carl',
-    subtitleTracks: [
-        {
-            url: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/subs_000.vtt',
-            label: 'English',
-            id: 'en',
-            kind: 'subtitles',
-            lang: 'en',
-            enabled: true
-        }
-    ]
+    title: 'Carl'
+    // subtitleTracks: [
+    //     {
+    //         url: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/subs_000.vtt',
+    //         label: 'English',
+    //         id: 'en',
+    //         kind: 'subtitles',
+    //         lang: 'en',
+    //         enabled: true
+    //     }
+    // ]
 };
 
 // === Load sources ===
