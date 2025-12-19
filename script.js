@@ -7,10 +7,10 @@ const testVideoOneSource = {
     subtitleTracks: [
         {
             url: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoOne/vtt/vtt.srt',
-            label: 'English',
-            id: 'en',
+            label: 'Spanish',
+            id: 'es',
             kind: 'subtitles',
-            lang: 'en',
+            lang: 'es',
             enabled: true
         }
     ]
