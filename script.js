@@ -1,5 +1,42 @@
 let player;
 
+// === Test source video with subtitles ===
+const testVideoOneSource = {
+    hls: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/manifest.m3u8',
+    title: 'Carl',
+    subtitleTracks: [
+        {
+            url: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/subs_000.vtt',
+            label: 'English',
+            id: 'en',
+            kind: 'subtitles',
+            lang: 'en',
+            enabled: true
+        }
+    ]
+};
+
+const testVideoTwoSource = {
+    hls: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/manifest.m3u8',
+    title: 'Carl',
+    subtitleTracks: [
+        {
+            url: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/subs_000.vtt',
+            label: 'Espanol',
+            id: 'es',
+            kind: 'subtitles',
+            lang: 'es',
+            enabled: true
+        }
+    ]
+};
+
+const testVideoThreeSource = {
+    hls: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/manifest.m3u8',
+    title: 'Carl'
+};
+
+
 function initPlayer(playerElementId, playerConfig) {
     console.log('initializing player...', playerElementId);
     console.log('player config...', playerConfig);
@@ -30,65 +67,6 @@ function initPlayer(playerElementId, playerConfig) {
     return playerInstance;
 }
 
-function hideFullscreenButton() {
-    const fullscreenButtons = document.querySelectorAll(".bmpui-ui-fullscreentogglebutton");
-
-    fullscreenButtons.forEach(btn => {
-        btn.style.display = "none";
-    });
-}
-
-function showFullscreenButton() {
-    const fullscreenButtons = document.querySelectorAll(".bmpui-ui-fullscreentogglebutton");
-
-    fullscreenButtons.forEach(btn => {
-        btn.style.display = "block";
-    });
-}
-
-
-// Initialize player when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded...');
-
-    // === Bitmovin player configuration ===
-    const playerConfig = {
-        key: 'c8783938-0606-4bcf-846d-828906104339',
-        playback: { autoplay: false },
-        ui: {
-            enterFullscreenOnInitialPlayback: false
-        }
-    };
-
-    player = initPlayer('player', playerConfig);
-});
-
-// === Test source (public, no auth required) ===
-const testSource = {
-    hls: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/manifest.m3u8',
-};
-
-// === Test audio source (public MP3) ===
-const testAudioSource = {
-    progressive: 'https://archive.org/download/testmp3testfile/mpthreetest.mp3'
-};
-
-// === Test source video with subtitles ===
-const testVideoWithSubtitlesSource = {
-    hls: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/manifest.m3u8',
-    title: 'Carl'
-    // subtitleTracks: [
-    //     {
-    //         url: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/subs_000.vtt',
-    //         label: 'English',
-    //         id: 'en',
-    //         kind: 'subtitles',
-    //         lang: 'en',
-    //         enabled: true
-    //     }
-    // ]
-};
-
 // === Load sources ===
 async function loadSource(source, type, playerInstance = player) {
     try {
@@ -113,32 +91,42 @@ async function loadSource(source, type, playerInstance = player) {
     }
 }
 
-// === Button handlers ===
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('loadTest').addEventListener('click', async () => {
+    console.log('DOM loaded...');
+
+    // === Bitmovin player configuration ===
+    const playerConfig = {
+        key: 'c8783938-0606-4bcf-846d-828906104339',
+        playback: { autoplay: false },
+        ui: {
+            enterFullscreenOnInitialPlayback: false
+        }
+    };
+
+    player = initPlayer('player', playerConfig);
+
+    document.getElementById('loadVideoOne').addEventListener('click', async () => {
         if (!player) {
             alert('Player not initialized yet');
             return;
         }
-        await loadSource(testSource, 'test video');
-        // showFullscreenButton();
+
+        await loadSource(testVideoOneSource, 'test video');
     });
 
-    document.getElementById('loadTestAudio').addEventListener('click', async () => {
+    document.getElementById('loadVideoTwo').addEventListener('click', async () => {
         if (!player) {
             alert('Player not initialized yet');
             return;
         }
-        await loadSource(testAudioSource, 'test audio');
-        // hideFullscreenButton();
+        await loadSource(testVideoTwoSource, 'test video');
     });
 
-    document.getElementById('loadVideoWithSubtitles').addEventListener('click', async () => {
+    document.getElementById('loadVideoThree').addEventListener('click', async () => {
         if (!player) {
             alert('Player not initialized yet');
             return;
         }
-        await loadSource(testVideoWithSubtitlesSource, 'test video with subtitles');
-        // showFullscreenButton();
+        await loadSource(testVideoThreeSource, 'test video with subtitles');
     });
 });
