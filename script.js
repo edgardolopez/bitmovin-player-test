@@ -25,6 +25,20 @@ const testVideoOneSource = {
     // ]
 };
 
+const loadVideoOneWithSubsSource = {
+    hls: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoOne/manifest.m3u8',
+    title: 'Carl',
+    subtitleTracks: [
+        {
+            url: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoOne/subs.vtt',
+            label: 'SpanishDinamic',
+            id: 'es',
+            kind: 'subtitles',
+            lang: 'es',
+            enabled: true
+        }
+    ]
+};
 const testVideoTwoSource = {
     hls: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoTwo/manifest.m3u8',
     title: 'Carl',
@@ -121,6 +135,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('loadVideoOne').addEventListener('click', async () => {
         await loadSource(testVideoOneSource, 'video one');
+    });
+
+    document.getElementById('loadVideoOneWithSubs').addEventListener('click', async () => {
+        await loadSource(loadVideoOneWithSubsSource, 'video one with subs');
     });
 
     document.getElementById('loadVideoTwo').addEventListener('click', async () => {
