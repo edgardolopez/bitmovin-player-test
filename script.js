@@ -1,5 +1,14 @@
 let player;
 
+// === Bitmovin player configuration ===
+const playerConfig = {
+    key: 'c8783938-0606-4bcf-846d-828906104339',
+    playback: { autoplay: false },
+    ui: {
+        enterFullscreenOnInitialPlayback: false
+    }
+};
+
 // === Test source video with subtitles ===
 const testVideoOneSource = {
     hls: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoOne/manifest.m3u8',
@@ -82,11 +91,16 @@ async function loadSource(source, type, playerInstance = player) {
     try {
         console.log(`Starting to load ${type} source:`, source);
 
-        console.log('Unloading previous source...');
-        await playerInstance.unload();
+        console.log('Destroying previous player...');
+        if (playerInstance) {
+            await playerInstance.destroy();
+        }
+
+        console.log('Creating new player instance...');
+        player = initPlayer('player', playerConfig);
 
         console.log('Loading new source...');
-        await playerInstance.load(source);
+        await player.load(source);
 
         console.log(`${type} source loaded successfully!`);
     } catch (error) {
@@ -101,42 +115,19 @@ async function loadSource(source, type, playerInstance = player) {
     }
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded...');
 
-    // === Bitmovin player configuration ===
-    const playerConfig = {
-        key: 'c8783938-0606-4bcf-846d-828906104339',
-        playback: { autoplay: false },
-        ui: {
-            enterFullscreenOnInitialPlayback: false
-        }
-    };
-
-    player = initPlayer('player', playerConfig);
-
     document.getElementById('loadVideoOne').addEventListener('click', async () => {
-        if (!player) {
-            alert('Player not initialized yet');
-            return;
-        }
-
         await loadSource(testVideoOneSource, 'video one');
     });
 
     document.getElementById('loadVideoTwo').addEventListener('click', async () => {
-        if (!player) {
-            alert('Player not initialized yet');
-            return;
-        }
         await loadSource(testVideoTwoSource, 'video two');
     });
 
     document.getElementById('loadVideoThree').addEventListener('click', async () => {
-        if (!player) {
-            alert('Player not initialized yet');
-            return;
-        }
         await loadSource(testVideoThreeSource, 'video three');
     });
 });
