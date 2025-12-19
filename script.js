@@ -22,7 +22,7 @@ const testVideoTwoSource = {
     subtitleTracks: [
         {
             url: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoTwo/vtt/vtt.srt',
-            label: 'Espanol',
+            label: 'Spanish',
             id: 'es',
             kind: 'subtitles',
             lang: 'es',
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        await loadSource(testVideoOneSource, 'test video');
+        await loadSource(testVideoOneSource, 'video one');
     });
 
     document.getElementById('loadVideoTwo').addEventListener('click', async () => {
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Player not initialized yet');
             return;
         }
-        await loadSource(testVideoTwoSource, 'test video');
+        await loadSource(testVideoTwoSource, 'video two');
     });
 
     document.getElementById('loadVideoThree').addEventListener('click', async () => {
@@ -127,6 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Player not initialized yet');
             return;
         }
-        await loadSource(testVideoThreeSource, 'test video with subtitles');
+        await loadSource(testVideoThreeSource, 'video three');
     });
 });
