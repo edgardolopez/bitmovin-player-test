@@ -1,0 +1,29 @@
+body {
+	font-family: sans-serif;
+	padding: 20px;
+	background: #fafafa;
+	text-align: center;
+	min-height: 800px;
+}
+
+#player {
+	width: 100%;
+	max-width: 480px;
+	aspect-ratio: 16/9;
+	margin: 20px auto;
+	background: #000;
+}
+
+button {
+	padding: 10px 20px;
+	font-size: 14px;
+	cursor: pointer;
+	border-radius: 6px;
+	border: none;
+	background-color: #007bff;
+	color: white;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
