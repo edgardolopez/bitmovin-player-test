@@ -79,11 +79,11 @@ const testVideoWithSubtitlesSource = {
     title: 'Carl',
     subtitleTracks: [
         {
-            url: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/vtt/vtt.srt',
-            label: 'Spanish',
-            id: 'es',
+            url: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/subs_000.vtt',
+            label: 'English',
+            id: 'en',
             kind: 'subtitles',
-            lang: 'es',
+            lang: 'en',
             enabled: true
         }
     ]
