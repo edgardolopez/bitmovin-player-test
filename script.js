@@ -2,11 +2,11 @@ let player;
 
 // === Test source video with subtitles ===
 const testVideoOneSource = {
-    hls: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/manifest.m3u8',
+    hls: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoOne/manifest.m3u8',
     title: 'Carl',
     subtitleTracks: [
         {
-            url: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/subs_000.vtt',
+            url: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoOne/vtt/vtt.srt',
             label: 'English',
             id: 'en',
             kind: 'subtitles',
@@ -17,11 +17,11 @@ const testVideoOneSource = {
 };
 
 const testVideoTwoSource = {
-    hls: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/manifest.m3u8',
+    hls: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoTwo/manifest.m3u8',
     title: 'Carl',
     subtitleTracks: [
         {
-            url: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/subs_000.vtt',
+            url: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoTwo/vtt/vtt.srt',
             label: 'Espanol',
             id: 'es',
             kind: 'subtitles',
@@ -32,7 +32,7 @@ const testVideoTwoSource = {
 };
 
 const testVideoThreeSource = {
-    hls: 'https://raw.githubusercontent.com/andreinahr/unily-test/refs/heads/main/video/manifest.m3u8',
+    hls: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/video/manifest.m3u8',
     title: 'Carl'
 };
 
