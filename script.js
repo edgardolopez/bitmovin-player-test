@@ -12,17 +12,17 @@ const playerConfig = {
 // === Test source video with subtitles ===
 const testVideoOneSource = {
     hls: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoOne/manifest.m3u8',
-    title: 'Carl',
-    subtitleTracks: [
-        {
-            url: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoOne/vtt/vtt.srt',
-            label: 'Spanish',
-            id: 'es',
-            kind: 'subtitles',
-            lang: 'es',
-            enabled: true
-        }
-    ]
+    title: 'Carl'
+    // subtitleTracks: [
+    //     {
+    //         url: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoOne/vtt/vtt.srt',
+    //         label: 'Spanish',
+    //         id: 'es',
+    //         kind: 'subtitles',
+    //         lang: 'es',
+    //         enabled: true
+    //     }
+    // ]
 };
 
 const testVideoTwoSource = {
