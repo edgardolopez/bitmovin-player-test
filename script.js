@@ -2,7 +2,7 @@ let player;
 
 // === Bitmovin player configuration ===
 const playerConfig = {
-    key: 'c8783938-0606-4bcf-846d-828906104339',
+    key: '8d912581-4d91-4ee2-9386-8912f6b8aeea',
     playback: { autoplay: false },
     ui: {
         enterFullscreenOnInitialPlayback: false
