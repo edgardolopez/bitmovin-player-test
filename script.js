@@ -25,6 +25,22 @@ const testVideoOneSource = {
     // ]
 };
 
+// === Test source video with subtitles ===
+const testAudioSource = {
+    hls: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/audio/manifest.m3u8',
+    title: 'Audio'
+    // subtitleTracks: [
+    //     {
+    //         url: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoOne/vtt/vtt.srt',
+    //         label: 'Spanish',
+    //         id: 'es',
+    //         kind: 'subtitles',
+    //         lang: 'es',
+    //         enabled: true
+    //     }
+    // ]
+};
+
 const loadVideoOneWithSubsSource = {
     hls: 'https://raw.githubusercontent.com/edgardolopez/bitmovin-player-test/refs/heads/main/videoOne/manifest.m3u8',
     title: 'Carl',
@@ -132,6 +148,10 @@ async function loadSource(source, type, playerInstance = player) {
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded...');
+  
+    document.getElementById('loadAudio').addEventListener('click', async () => {
+        await loadSource(testAudioSource, 'audio');
+    });
 
     document.getElementById('loadVideoOne').addEventListener('click', async () => {
         await loadSource(testVideoOneSource, 'video one');
